@@ -6,7 +6,7 @@ from keras.datasets import mnist
 from matplotlib import pyplot as plt
 from auto_encoder.AE import AutoEncoder, StackedAutoEncoder
 
-mpl.use('TkAgg')
+mpl.use('QT5Agg')
 plt.rcParams['figure.figsize'] = [12, 9]
 
 def main():
@@ -25,7 +25,7 @@ def main():
                         help='batch size')
 
     args = parser.parse_args().__dict__
-    neurons = list(map(lambda x: int(x), args.pop('neurons').split(',')))
+    neurons = list(map(int, args.pop('neurons').split(',')))
     epochs = args.pop('epochs')
     batch_size = args.pop('batch')
 
